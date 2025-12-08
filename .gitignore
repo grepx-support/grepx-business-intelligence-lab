@@ -1,0 +1,33 @@
+# Environment
+.env
+.env.local
+*.env
+
+# Tool-specific
+.grafana/
+.metabase/
+*.db
+
+# Data
+data-sources/sample-data/*.csv
+data-sources/sample-data/*.json
+!data-sources/sample-data/.gitkeep
+
+# Secrets
+**/secrets/
+**/*.key
+**/*.pem
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+venv/
+__pycache__/
