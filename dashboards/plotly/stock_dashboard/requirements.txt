@@ -1,0 +1,11 @@
+plotly
+yfinance
+dash-core-components
+dash-html-components
+dash-bootstrap-components
+scipy
+numpy
+pandas
+pymongo
+python-dotenv
+os

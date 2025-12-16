@@ -1,0 +1,38 @@
+
+
+/* Light mode tabs (default - adjust if needed) */
+.dash-tabs .tab {
+    background-color: #f8f9fa;  /* Light gray */
+    color: #495057;
+    border: 1px solid #dee2e6;
+}
+
+.dash-tabs .tab--selected {
+    background-color: white;
+    color: #007bff;
+    border-bottom: 3px solid #007bff;
+}
+
+/* Dark mode tabs - activated when your theme class is applied */
+.dark-theme .dash-tabs .tab {
+    background-color: #343a40;  /* Dark gray */
+    color: #adb5bd;
+    border: 1px solid #495057;
+}
+
+.dark-theme .dash-tabs .tab--selected {
+    background-color: #212529;  /* Darker background */
+    color: #4da3ff;            /* Your blue accent color */
+    border-bottom: 3px solid #4da3ff;
+}
+
+.dark-theme .dash-tabs .tab:hover {
+    background-color: #495057;
+    color: white;
+}
+
+/* Optional: Make tab content area dark too */
+.dark-theme .dash-tab-content {
+    background-color: #212529;
+    color: #e9ecef;
+}
