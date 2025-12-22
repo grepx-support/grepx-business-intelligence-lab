@@ -1,5 +1,6 @@
 plotly
 yfinance
+dash
 dash-core-components
 dash-html-components
 dash-bootstrap-components
@@ -8,4 +9,4 @@ numpy
 pandas
 pymongo
 python-dotenv
-os
+
