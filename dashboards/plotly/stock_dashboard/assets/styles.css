@@ -1,0 +1,155 @@
+/* styles.css */
+
+html, body, #react-entry-point, #_dash-app-content {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#react-entry-point,
+#_dash-app-content {
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* prevent white bleed around root */
+#react-entry-point, #_dash-app-content, .dash-debug-menu {
+    background: transparent !important;
+}
+
+/* Constrain page div */
+#page {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Prevent graph overflow */
+.plotly-graph-div {
+    overflow: hidden !important;
+}
+
+/* Constrain drilldown card */
+#month_drilldown_card > div {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Constrain chart rows */
+#row1, #row2 {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Constrain individual chart cards */
+#price_card, #corr_card, #monthly_card, #yearly_card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Force plotly graphs to respect container */
+#price_card .plotly-graph-div,
+#corr_card .plotly-graph-div,
+#monthly_card .plotly-graph-div,
+#yearly_card .plotly-graph-div {
+    width: 100% !important;
+    height: 500px !important;
+    overflow: hidden !important;
+}
+
+/* ===== DARK MODE DROPDOWNS ===== */
+.dark-dropdown .Select-control {
+    background-color: #101a2e !important;
+    border: 1px solid rgba(255,255,255,0.14) !important;
+    color: #e8eefc !important;
+}
+
+.dark-dropdown .Select-menu-outer {
+    background-color: #101a2e !important;
+    border: 1px solid rgba(255,255,255,0.14) !important;
+    color: #e8eefc !important;
+}
+
+.dark-dropdown .Select-value-label,
+.dark-dropdown .Select-placeholder,
+.dark-dropdown .Select-input input {
+    color: #e8eefc !important;
+}
+
+.dark-dropdown .VirtualizedSelectOption {
+    background-color: #101a2e !important;
+    color: #e8eefc !important;
+}
+
+.dark-dropdown .VirtualizedSelectFocusedOption {
+    background-color: rgba(77,163,255,0.18) !important;
+    color: #e8eefc !important;
+}
+
+.dark-dropdown .Select-item {
+    background-color: #2c5aa0 !important;
+    border-color: #4DA3FF !important;
+    color: #e8eefc !important;
+}
+
+.dark-dropdown .Select-item-icon {
+    color: #ff6b6b !important;
+}
+
+/* ===== LIGHT MODE DROPDOWNS ===== */
+.light-dropdown .Select-control {
+    background-color: #ffffff !important;
+    border: 1px solid #ddd !important;
+    color: #1a1a1a !important;
+}
+
+.light-dropdown .Select-menu-outer {
+    background-color: #ffffff !important;
+    border: 1px solid #ddd !important;
+    color: #1a1a1a !important;
+}
+
+.light-dropdown .Select-value-label,
+.light-dropdown .Select-placeholder,
+.light-dropdown .Select-input input {
+    color: #1a1a1a !important;
+}
+
+.light-dropdown .VirtualizedSelectOption {
+    background-color: #ffffff !important;
+    color: #1a1a1a !important;
+}
+
+.light-dropdown .VirtualizedSelectFocusedOption {
+    background-color: #e8f4ff !important;
+    color: #1a1a1a !important;
+}
+
+.light-dropdown .Select-item {
+    background-color: #d4e9ff !important;
+    border-color: #4DA3FF !important;
+    color: #1a1a1a !important;
+}
+
+.light-dropdown .Select-item-icon {
+    color: #e74c3c !important;
+}
+
+.custom-tab {
+    font-weight: bold;
+    font-size: 16px;
+}
+.custom-tab--selected {
+    border-top: 3px solid #4da3ff !important;
+    color: #4da3ff !important;
+}

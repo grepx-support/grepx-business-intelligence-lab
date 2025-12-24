@@ -1,0 +1,107 @@
+/* assets/drop-down.css - CLEAN VERSION */
+
+/* ===== DARK MODE DROPDOWNS ===== */
+.dark-dropdown .Select-control {
+    background-color: #0f1930 !important;
+    border: 1px solid #1e2a45 !important;
+    color: #e8eefc !important;
+}
+
+.dark-dropdown .Select-arrow {
+    border-color: #4da3ff transparent transparent !important;
+}
+
+.dark-dropdown .Select-placeholder {
+    color: #8899bb !important;
+}
+
+.dark-dropdown .Select-value-label,
+.dark-dropdown .Select-input input {
+    color: #e8eefc !important;
+    font-weight: 600;
+}
+
+.dark-dropdown .Select-menu-outer {
+    background-color: #0b1220 !important;
+    border: 1px solid #1e2a45 !important;
+}
+
+.dark-dropdown .VirtualizedSelectOption {
+    background-color: #0b1220 !important;
+    color: #e8eefc !important;
+}
+
+.dark-dropdown .VirtualizedSelectFocusedOption {
+    background-color: #1a2b55 !important;
+    color: #e8eefc !important;
+}
+
+/* Multi-select tags (dark mode) */
+.dark-dropdown .Select--multi .Select-value {
+    background-color: #16254a !important;
+    border-radius: 10px !important;
+    padding: 2px 6px !important;
+    border: 1px solid #4da3ff !important;
+}
+
+.dark-dropdown .Select--multi .Select-value-label {
+    color: #4da3ff !important;
+    font-weight: 600 !important;
+}
+
+.dark-dropdown .Select--multi .Select-value-icon {
+    color: #ff4d4d !important;
+}
+
+/* ===== LIGHT MODE DROPDOWNS ===== */
+.light-dropdown .Select-control {
+    background-color: #ffffff !important;
+    border: 1px solid #ddd !important;
+    color: #1a1a1a !important;
+}
+
+.light-dropdown .Select-arrow {
+    border-color: #4da3ff transparent transparent !important;
+}
+
+.light-dropdown .Select-placeholder {
+    color: #999 !important;
+}
+
+.light-dropdown .Select-value-label,
+.light-dropdown .Select-input input {
+    color: #1a1a1a !important;
+    font-weight: 600 !important;
+}
+
+.light-dropdown .Select-menu-outer {
+    background-color: #ffffff !important;
+    border: 1px solid #ddd !important;
+}
+
+.light-dropdown .VirtualizedSelectOption {
+    background-color: #ffffff !important;
+    color: #1a1a1a !important;
+}
+
+.light-dropdown .VirtualizedSelectFocusedOption {
+    background-color: #e8f4ff !important;
+    color: #1a1a1a !important;
+}
+
+/* Multi-select tags (light mode) */
+.light-dropdown .Select--multi .Select-value {
+    background-color: #ffffff !important;
+    border: 2px solid #4da3ff !important;
+    border-radius: 10px !important;
+    padding: 2px 6px !important;
+}
+
+.light-dropdown .Select--multi .Select-value-label {
+    color: #1a1a1a !important;
+    font-weight: 600 !important;
+}
+
+.light-dropdown .Select--multi .Select-value-icon {
+    color: #e74c3c !important;
+}
