@@ -2,11 +2,43 @@ import os
 import pandas as pd
 from pymongo import MongoClient
 from dotenv import load_dotenv
+import logging
+from pymongo.errors import PyMongoError
+
 
 load_dotenv()
 
-client = MongoClient(os.getenv("MONGO_URI"))
-db = client[os.getenv("MONGO_DB")]
+logger = logging.getLogger(__name__)
+
+mongo_uri = os.getenv("MONGO_URI")
+mongo_db_name = os.getenv("MONGO_DB")
+
+if not mongo_uri or not mongo_db_name:
+    logger.critical(
+        "MongoDB configuration error: MONGO_URI or MONGO_DB not set"
+    )
+    raise RuntimeError(
+        "MongoDB configuration error: both MONGO_URI and MONGO_DB "
+        "environment variables must be set."
+    )
+
+try:
+    client = MongoClient(
+        mongo_uri,
+        serverSelectionTimeoutMS=5000  # fail fast
+    )
+    # Force connection check
+    client.admin.command("ping")
+    db = client[mongo_db_name]
+
+    logger.info("Successfully connected to MongoDB database '%s'", mongo_db_name)
+
+except PyMongoError as exc:
+    logger.exception("Failed to connect to MongoDB")
+    raise RuntimeError(
+        "Failed to initialize MongoDB client or select database"
+    ) from exc
+
 
 def _colname(sym: str) -> str:
     return sym.lower()+ "_prices"

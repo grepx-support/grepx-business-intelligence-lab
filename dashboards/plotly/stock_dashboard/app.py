@@ -1,13 +1,12 @@
 # app.py
-from dash import Dash, html, dcc
+from dash import Dash, html
 import dash_bootstrap_components as dbc
 
-from components.layout import create_layout
 from callbacks.theme import register_theme_callbacks
 from callbacks.charts import register_chart_callbacks
 from callbacks.controls import register_control_callbacks
 from callbacks.drilldown import register_drilldown_callback
-from callbacks.tabs import *  # Imports the two callbacks above
+import callbacks.tabs  # Imports the two callbacks above
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.config.suppress_callback_exceptions = True

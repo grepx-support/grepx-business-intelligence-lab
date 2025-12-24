@@ -44,7 +44,11 @@ def monthly_returns(df: pd.DataFrame) -> pd.DataFrame:
         .agg(first_close=("close", "first"), last_close=("close", "last"))
         .reset_index()
     )
-    m["monthly_return"] = (m["last_close"] - m["first_close"]) / m["first_close"]
+    m["monthly_return"] = np.where(
+    m["first_close"] > 0,
+    (m["last_close"] - m["first_close"]) / m["first_close"],
+    np.nan
+)
     return m
 
 def yearly_returns(df: pd.DataFrame) -> pd.DataFrame:

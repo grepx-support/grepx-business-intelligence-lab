@@ -1,5 +1,4 @@
 from dash import dcc, html
-from config.theme import DARK, LIGHT
 
 SYMBOLS = ["AMZN", "MSFT", "NVDA", "TSLA", "META", "GOOGL", "NFLX", "INTC", "BABA"]
 

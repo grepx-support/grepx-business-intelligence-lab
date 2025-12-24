@@ -58,7 +58,12 @@ def risk_card(theme, sym, score, ann_vol, max_dd):
 
 from dash import dcc
 
-dcc.Link(
-    html.H4("NVDA", style={"color": "#4da3ff", "fontWeight": "bold"}),
-    href="/stock/NVDA"
-)
+def nvda_stock_link():
+    """Return a navigation link component to the NVDA stock page."""
+    return dcc.Link(
+        html.H4(
+            "NVDA",
+            style={"color": "#4da3ff", "fontWeight": "bold"},
+        ),
+        href="/stock/NVDA",
+    )
