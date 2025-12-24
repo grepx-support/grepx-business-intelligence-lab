@@ -31,3 +31,11 @@ Thumbs.db
 node_modules/
 venv/
 __pycache__/
+
+
+# Grafana generated data (DO NOT COMMIT)
+dashboards/grafana/data/
+**/grafana/data/
+
+# Grafana installer (large binary)
+*.msi
