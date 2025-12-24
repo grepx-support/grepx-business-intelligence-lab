@@ -1,0 +1,11 @@
+apiVersion: 1
+
+providers:
+  - name: "Stock Dashboards"
+    orgId: 1
+    folder: "Stocks"
+    type: file
+    disableDeletion: false
+    editable: true
+    options:
+      path: C:\Program Files\GrafanaLabs\grafana\data\dashboards

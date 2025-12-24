@@ -1,0 +1,191 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+
+  "id": null,
+  "uid": null,
+
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "usd"
+        }
+      },
+      "gridPos": { "h": 3, "w": 4, "x": 0, "y": 0 },
+      "id": 1,
+      "targets": [
+        {
+          "format": "table",
+          "parser": "jq-backend",
+          "refId": "A",
+          "source": "url",
+          "type": "json",
+          "url": "/api/kpis?symbol=${symbol}"
+        }
+      ],
+      "title": "Price",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": { "include": { "names": ["price"] } }
+        }
+      ],
+      "type": "stat"
+    },
+
+    {
+      "datasource": { "uid": "${DS_INFINITY}" },
+      "gridPos": { "h": 3, "w": 4, "x": 4, "y": 0 },
+      "id": 2,
+      "targets": [
+        {
+          "format": "table",
+          "parser": "jq-backend",
+          "refId": "A",
+          "source": "url",
+          "type": "json",
+          "url": "/api/kpis?symbol=${symbol}"
+        }
+      ],
+      "title": "Daily Change",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": { "include": { "names": ["change_pct"] } }
+        }
+      ],
+      "type": "stat"
+    },
+
+    {
+      "datasource": { "uid": "${DS_INFINITY}" },
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 3 },
+      "id": 3,
+      "targets": [
+        {
+          "format": "timeseries",
+          "parser": "jq-backend",
+          "refId": "A",
+          "source": "url",
+          "type": "json",
+          "url": "/api/price-volume?symbol=${symbol}"
+        }
+      ],
+      "title": "Price + Volume",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [{ "targetField": "time", "destinationType": "time" }]
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+
+    {
+      "datasource": { "uid": "${DS_INFINITY}" },
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 3 },
+      "id": 4,
+      "targets": [
+        {
+          "format": "timeseries",
+          "parser": "jq-backend",
+          "refId": "A",
+          "source": "url",
+          "type": "json",
+          "url": "/api/rsi?symbol=${symbol}"
+        }
+      ],
+      "title": "RSI 14",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [{ "targetField": "time", "destinationType": "time" }]
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+
+    {
+      "datasource": { "uid": "${DS_INFINITY}" },
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 11 },
+      "id": 5,
+      "targets": [
+        {
+          "format": "table",
+          "parser": "jq-backend",
+          "refId": "A",
+          "source": "url",
+          "type": "json",
+          "url": "/api/sma?symbol=${symbol}"
+        }
+      ],
+      "title": "SMA",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [{ "targetField": "time", "destinationType": "time" }]
+          }
+        }
+      ],
+      "type": "timeseries"
+    }
+  ],
+
+  "schemaVersion": 42,
+  "templating": {
+    "list": [
+      {
+        "name": "symbol",
+        "label": "symbol",
+        "type": "query",
+        "query": {
+          "queryType": "infinity",
+          "infinityQuery": {
+            "format": "table",
+            "parser": "jq-backend",
+            "source": "url",
+            "type": "json",
+            "url": "/api/symbols"
+          }
+        },
+        "refresh": 1
+      }
+    ]
+  },
+
+  "time": {
+    "from": "2021-12-01T00:00:00.000Z",
+    "to": "now"
+  },
+  "timezone": "browser",
+  "title": "Stock Analysis Dashboard",
+  "version": 1
+}
