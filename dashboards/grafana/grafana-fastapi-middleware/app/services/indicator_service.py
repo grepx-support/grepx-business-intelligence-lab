@@ -8,7 +8,7 @@ def get_rsi(symbol: str):
     collection_name = f"{symbol.lower()}_rsi"
 
     if collection_name not in db.list_collection_names():
-        return []
+        return [] 
 
     col = db[collection_name]
 

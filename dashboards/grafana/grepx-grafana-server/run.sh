@@ -27,9 +27,25 @@ case "$1" in
 
     if [[ "$OS" == "Linux" ]]; then
       sudo systemctl start "$SERVICE_LINUX"
+      echo "Waiting for Grafana to initialize (Linux)..."
+      sleep 10
+      echo "Grafana started. Access at: http://localhost:3000"
     else
       powershell.exe -NoProfile -Command "
-        Start-Service -Name '$SERVICE_WINDOWS'
+        Write-Host 'Starting Grafana service...' -ForegroundColor Cyan
+        Start-Service -Name '$SERVICE_WINDOWS' -ErrorAction Stop
+        Write-Host 'Grafana service started.' -ForegroundColor Green
+        Write-Host ''
+        Write-Host 'Waiting for Grafana to initialize (10 seconds)...' -ForegroundColor Yellow
+        Start-Sleep -Seconds 10
+        Write-Host ''
+        Write-Host 'Grafana is ready!' -ForegroundColor Green
+        Write-Host 'Access Grafana at: http://localhost:3000 or http://127.0.0.1:3000' -ForegroundColor Cyan
+        Write-Host 'Default login: admin / admin' -ForegroundColor Cyan
+        Write-Host ''
+        Write-Host 'Provisioning files:' -ForegroundColor Yellow
+        Write-Host '  - Datasources: C:\Program Files\GrafanaLabs\grafana\conf\provisioning\datasources' -ForegroundColor Gray
+        Write-Host '  - Dashboards: C:\Program Files\GrafanaLabs\grafana\data\dashboards' -ForegroundColor Gray
       "
     fi
     ;;
