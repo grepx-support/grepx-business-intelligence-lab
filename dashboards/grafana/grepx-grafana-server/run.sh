@@ -29,7 +29,7 @@ case "$1" in
       sudo systemctl start "$SERVICE_LINUX"
       echo "Waiting for Grafana to initialize (Linux)..."
       sleep 10
-      echo "Grafana started. Access at: http://localhost:3000"
+      echo "Grafana started. Access at: http://localhost:3001"
     else
       powershell.exe -NoProfile -Command "
         Write-Host 'Starting Grafana service...' -ForegroundColor Cyan
@@ -40,7 +40,7 @@ case "$1" in
         Start-Sleep -Seconds 10
         Write-Host ''
         Write-Host 'Grafana is ready!' -ForegroundColor Green
-        Write-Host 'Access Grafana at: http://localhost:3000 or http://127.0.0.1:3000' -ForegroundColor Cyan
+        Write-Host 'Access Grafana at: http://localhost:3001 or http://127.0.0.1:3001' -ForegroundColor Cyan
         Write-Host 'Default login: admin / admin' -ForegroundColor Cyan
         Write-Host ''
         Write-Host 'Provisioning files:' -ForegroundColor Yellow

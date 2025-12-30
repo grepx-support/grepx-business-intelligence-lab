@@ -177,9 +177,9 @@ configure_linux() {
     GRAFANA_INI="/etc/grafana/grafana.ini"
 
     # Force http_addr
-    sudo sed -i -E \
-      "s|^[#;]?[[:space:]]*http_addr[[:space:]]*=.*|http_addr = 0.0.0.0|" \
-      "$GRAFANA_INI"
+    # sudo sed -i -E \
+    #   "s|^[#;]?[[:space:]]*http_addr[[:space:]]*=.*|http_addr = 0.0.0.0|" \
+    #   "$GRAFANA_INI"
 
     # Force http_port = 3001
     sudo sed -i -E \
