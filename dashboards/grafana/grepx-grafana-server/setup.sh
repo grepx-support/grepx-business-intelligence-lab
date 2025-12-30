@@ -172,9 +172,21 @@ provision_dashboards_linux() {
 }
 
 configure_linux() {
-    log "Configuring Grafana (HOST=$HOST, PORT=$PORT)..."
-    sudo sed -i "s/^;http_addr =.*/http_addr = $HOST/" /etc/grafana/grafana.ini
-    sudo sed -i "s/^;http_port =.*/http_port = $PORT/" /etc/grafana/grafana.ini
+    log "Configuring Grafana to run on port 3001..."
+
+    GRAFANA_INI="/etc/grafana/grafana.ini"
+
+    # Force http_addr
+    sudo sed -i -E \
+      "s|^[#;]?[[:space:]]*http_addr[[:space:]]*=.*|http_addr = 0.0.0.0|" \
+      "$GRAFANA_INI"
+
+    # Force http_port = 3001
+    sudo sed -i -E \
+      "s|^[#;]?[[:space:]]*http_port[[:space:]]*=.*|http_port = 3001|" \
+      "$GRAFANA_INI"
+
+    log "Grafana port successfully set to 3001"
 }
 
 start_grafana_linux() {

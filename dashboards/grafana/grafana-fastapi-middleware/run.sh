@@ -5,7 +5,7 @@ echo "Starting FastAPI server..."
 set -e
 
 # Activate virtual environment
-source venv/Scripts/activate
+source venv/bin/activate
 
 # Start FastAPI
 uvicorn app.main:app \

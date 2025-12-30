@@ -21,7 +21,7 @@ else
 fi
 
 # Activate venv (Windows Git Bash)
-source venv/Scripts/activate
+source venv/bin/activate
 
 # Upgrade pip
 python -m pip install --upgrade pip
